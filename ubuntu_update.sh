@@ -49,45 +49,45 @@ sudo apt-get -y build-dep samba
 sudo apt-get  -y install  --install-recommends winehq-devel
 sudo apt-get  -y install   exfat-fuse exfat-utils ntfs-3g-dev libfsntfs1 libfsntfs-dev
 else
-yum install ksh -y  
-yum install libXext.so.6 -y  
-yum install libXtst.so.6 -y 
-yum install libXt.so.6 -y  
-yum install libGLU.so.1 --setopt=protected_multilib=false  
-yum install libelf.so.1 -y  
-yum install libXrender.so.1 -y  
-yum install libXp.so.6 -y  
-yum install libXrandr.so.2 -y
-yum install *xorg* -y   
-yum install libXp -y  
-yum install ld-linux.so.2 -y  
-yum install openmotif  -y  
-yum install libstdc++.so.5 -y  
-yum install -y xterm
- yum install -y  kernel-headers kernel-devel gcc
-yum install -y gcc gcc-c++ ksh csh libXp *xorg-X11-fonts* compat-libstdc++-33.i686  
-yum install -y alliance-libs alliance glibc-2.12-1.107.el6.i686 glibc-devel.i686 glibc  
-yum install -y compat-readline5-5.2-17.1.el6.i686  
-Yum install -y xterm-253-1
-ln -s /usr/bin/awk /bin/awk  
-ln -s /usr/lib/libstdc++-3-libc6.2-2-2.10.0.so /usr/lib/libstdc++-libc6.1-1.so.2  
-ln -s /bin/gunzip /bin/uncompress
+sudo yum install ksh -y  
+sudo yum install libXext.so.6 -y  
+sudo yum install libXtst.so.6 -y 
+sudo yum install libXt.so.6 -y  
+sudo yum install libGLU.so.1 --setopt=protected_multilib=false  
+sudo yum install libelf.so.1 -y  
+sudo yum install libXrender.so.1 -y  
+sudo yum install libXp.so.6 -y  
+sudo yum install libXrandr.so.2 -y
+sudo yum install *xorg* -y   
+sudo yum install libXp -y  
+sudo yum install ld-linux.so.2 -y  
+sudo yum install openmotif  -y  
+sudo yum install libstdc++.so.5 -y  
+sudo yum install -y xterm
+sudo yum install -y  kernel-headers kernel-devel gcc
+sudo yum install -y gcc gcc-c++ ksh csh libXp *xorg-X11-fonts* compat-libstdc++-33.i686  
+sudo yum install -y alliance-libs alliance glibc-2.12-1.107.el6.i686 glibc-devel.i686 glibc  
+sudo yum install -y compat-readline5-5.2-17.1.el6.i686  
+sudo Yum install -y xterm-253-1
+sudo ln -s /usr/bin/awk /bin/awk  
+sudo ln -s /usr/lib/libstdc++-3-libc6.2-2-2.10.0.so /usr/lib/libstdc++-libc6.1-1.so.2  
+sudo ln -s /bin/gunzip /bin/uncompress
 cd /lib64  
-ln -s libreadline.so.6 libreadline.so.5  
+sudo ln -s libreadline.so.6 libreadline.so.5  
 cd /usr/lib64  
-ln -s libhistory.so.6 libhistory.so.5
-chmod 755 /usr/tmp
+sudo ln -s libhistory.so.6 libhistory.so.5
+sudo chmod 755 /usr/tmp
 sudo yum install -y zsh redhat-lsb-core.x86_64
-sudo yum localinstall --nogpgcheck  https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm
-sudo yum localinstall --nogpgcheck https://mirrors.ustc.edu.cn/rpmfusion/free/el/rpmfusion-free-release-7.noarch.rpm
-sudo sed -e 's!^mirrorlist=!#mirrorlist=!g' \
+#sudo yum localinstall --nogpgcheck  https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm
+#sudo yum localinstall --nogpgcheck https://mirrors.ustc.edu.cn/rpmfusion/free/el/rpmfusion-free-release-7.noarch.rpm
+#sudo sed -e 's!^mirrorlist=!#mirrorlist=!g' \
          -e 's!^#baseurl=!baseurl=!g' \
          -e 's!//download\.fedoraproject\.org/pub!//mirrors.ustc.edu.cn!g' \
          -e 's!http://mirrors\.ustc!https://mirrors.ustc!g' \
          -i /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel-testing.repo
 sudo yum makecache
-sudo yum install ntfs-3g  fuse-exfat exfat-utils scons zsh ntfs-3g-devel
-yum install git clang gcc-c++ make cmake opencv-devel libcurl-devel sox-devel
-yum install python-pip python36-pip python36-devel python36-opencv python36-numpy
+sudo yum install ntfs-3g  fuse-exfat exfat-utils scons zsh ntfs-3g-devel -y
+sudo yum install git clang gcc-c++ make cmake opencv-devel libcurl-devel sox-devel -y
+#sudo yum install python-pip python36-pip python36-devel python36-opencv python36-numpy -y
 fi
 
