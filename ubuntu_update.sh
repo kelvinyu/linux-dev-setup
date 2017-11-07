@@ -17,12 +17,12 @@ sudo apt-get update
 sudo apt-get -y install libc6-i686:i386 libexpat1:i386 libffi6:i386 libfontconfig1:i386 libfreetype6:i386 libgcc1:i386 libglib2.0-0:i386 libice6:i386 libpcre3:i386 libpng16-16:i386 libsm6:i386 libstdc++6:i386 libuuid1:i386 libx11-6:i386 libxau6:i386 libxcb1:i386 libxdmcp6:i386 libxext6:i386 libxrender1:i386 zlib1g:i386 libx11-xcb1:i386 libdbus-1-3:i386 libxi6:i386 libsm6:i386 libcurl3:i386 
 sudo apt-get -y  install libgtk2.0-0:i386 gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 libpango1.0-0:i386
 sudo apt-get install intelpython3 nasm
-sudo apt-get -y install  libjson-perl openssh-server 
+sudo apt-get -f install ttf-ancient-fonts  fonts-ancient-scripts dkms
 sudo apt-get -y install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev
 sudo apt-get  -y install freeglut3-dev freeglut3 libxcursor-dev libncursesw5-dev  libx11-dev libwebkit-gtk
 sudo apt install --yes build-essential git-core cscope ctags cvs subversion
 sudo apt-get  -y install  vim vim-gnome vim-scripts vim-addon-manager
-sudo apt-get  -y install  automake autoconf libtool
+sudo apt-get  -y install  automake autoconf libtool scons cmake
 #sudo apt-get  -y install libgtk2.0-dev libxmu-dev libxxf86vm-dev
 sudo apt-get  -y install  p7zip* axel aria2
 sudo apt-get  -y install  valgrind valkyrie alleyoop
@@ -33,7 +33,7 @@ sudo apt-get -y install  python-serial
 sudo apt-get  -y install  gcc-7 g++-7 gcc-7-multilib  g++-7-multilib  gcc-4.9 g++-4.9 g++-4.9-multilib g++-multilib gcc-multilib 
 sudo apt-get -y build-dep linux-`uname -r`
 sudo apt-get install -y clang-5.0 llvm-5.0 llvm-5.0-dev
-sudo apt-get -y install git-core  cmake  gdb python-dev swig \
+sudo apt-get -y install git-core  gdb python-dev swig \
 pkg-config libfftw3-dev libboost-all-dev libcppunit-dev \
 libgsl0-dev libusb-dev python-wxgtk3.0 \
 python-numpy python-cheetah python-lxml doxygen libxi-dev \
@@ -77,16 +77,16 @@ ln -s libreadline.so.6 libreadline.so.5
 cd /usr/lib64  
 ln -s libhistory.so.6 libhistory.so.5
 chmod 755 /usr/tmp
-sudo yum install -y fuse-exfat.x86_64 exfat-utils.x86_64
 sudo yum install -y zsh redhat-lsb-core.x86_64
-sudo yum install -y ntfs-3g-devel.x86_64 ntfs-3g.x86_64
-wget https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm
-yum install epel-release-latest-7.noarch.rpm
+sudo yum localinstall --nogpgcheck  https://mirrors.ustc.edu.cn/epel/epel-release-latest-7.noarch.rpm
+sudo yum localinstall --nogpgcheck https://mirrors.ustc.edu.cn/rpmfusion/free/el/rpmfusion-free-release-7.noarch.rpm
 sudo sed -e 's!^mirrorlist=!#mirrorlist=!g' \
          -e 's!^#baseurl=!baseurl=!g' \
          -e 's!//download\.fedoraproject\.org/pub!//mirrors.ustc.edu.cn!g' \
          -e 's!http://mirrors\.ustc!https://mirrors.ustc!g' \
          -i /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel-testing.repo
+sudo yum makecache
+sudo yum install ntfs-3g  fuse-exfat exfat-utils scons zsh ntfs-3g-devel
 yum install git clang gcc-c++ make cmake opencv-devel libcurl-devel sox-devel
 yum install python-pip python36-pip python36-devel python36-opencv python36-numpy
 fi
