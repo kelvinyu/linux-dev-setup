@@ -1,10 +1,11 @@
+if [ -e /usr/bin/dpkg ];then
 sudo dpkg --add-architecture i386
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo add-apt-repository ppa:oibaf/graphics-drivers
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+sudo add-apt-repository -y ppa:oibaf/graphics-drivers
 wget  https://dl.winehq.org/wine-builds/Release.key
 sudo apt-key add Release.key
-sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
-sudo add-apt-repository --yes ppa:js-reynaud/kicad-4
+sudo apt-add-repository -y https://dl.winehq.org/wine-builds/ubuntu/
+sudo add-apt-repository -y ppa:js-reynaud/kicad-4
 wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
 sudo wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list
@@ -16,7 +17,7 @@ sudo sh -c 'echo deb https://apt.repos.intel.com/intelpython binary/ > /etc/apt/
 sudo apt-get update
 sudo apt-get -y install libc6-i686:i386 libexpat1:i386 libffi6:i386 libfontconfig1:i386 libfreetype6:i386 libgcc1:i386 libglib2.0-0:i386 libice6:i386 libpcre3:i386 libpng16-16:i386 libsm6:i386 libstdc++6:i386 libuuid1:i386 libx11-6:i386 libxau6:i386 libxcb1:i386 libxdmcp6:i386 libxext6:i386 libxrender1:i386 zlib1g:i386 libx11-xcb1:i386 libdbus-1-3:i386 libxi6:i386 libsm6:i386 libcurl3:i386 
 sudo apt-get -y  install libgtk2.0-0:i386 gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 libpango1.0-0:i386
-sudo apt-get install intelpython3 nasm
+sudo apt-get -y install intelpython3 nasm
 sudo apt-get -f install ttf-ancient-fonts  fonts-ancient-scripts dkms
 sudo apt-get -y install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev
 sudo apt-get  -y install freeglut3-dev freeglut3 libxcursor-dev libncursesw5-dev  libx11-dev libwebkit-gtk
@@ -32,7 +33,7 @@ sudo apt-get -y install  lib32ncurses5 lib32tinfo5 lib32z1 libc6-i386 libx11-dev
 sudo apt-get -y install  python-serial
 sudo apt-get  -y install  gcc-7 g++-7 gcc-7-multilib  g++-7-multilib  gcc-4.9 g++-4.9 g++-4.9-multilib g++-multilib gcc-multilib 
 sudo apt-get -y build-dep linux-`uname -r`
-sudo apt-get install -y clang-5.0 llvm-5.0 llvm-5.0-dev
+sudo apt-get -y install  clang-5.0 llvm-5.0 llvm-5.0-dev
 sudo apt-get -y install git-core  gdb python-dev swig \
 pkg-config libfftw3-dev libboost-all-dev libcppunit-dev \
 libgsl0-dev libusb-dev python-wxgtk3.0 \
@@ -41,13 +42,12 @@ python-sip libqwt-dev libfontconfig1-dev   \
 libxrender-dev python-sip python-sip-dev build-essential zsh tcsh \
 astyle automake  ctags tmux screen graphviz doxygen-latex   doxygen-doc  kicad
 
-sudo apt-get install -y gitk winbind lib32ncurses5-dev libncurses5-dev
-sudo apt-get -y install python-dev python-pip libcurl4-openssl-dev libopencv-dev libsox-dev
-sudo apt-get -y  install python3-dev python3-pip 
+sudo apt-get -y install  gitk winbind lib32ncurses5-dev libncurses5-dev
+sudo apt-get -y install  libcurl4-openssl-dev libopencv-dev libsox-dev
 sudo apt-get  -y install  lua5.3liblua5.3-dev
-sudo apt-get build-dep samba
-sudo apt-get  install -y  --install-recommends winehq-devel
-sudo apt-get  install -y   exfat-fuse exfat-utils ntfs-3g-dev libfsntfs1 libfsntfs-dev
+sudo apt-get -y build-dep samba
+sudo apt-get  -y install  --install-recommends winehq-devel
+sudo apt-get  -y install   exfat-fuse exfat-utils ntfs-3g-dev libfsntfs1 libfsntfs-dev
 else
 yum install ksh -y  
 yum install libXext.so.6 -y  
