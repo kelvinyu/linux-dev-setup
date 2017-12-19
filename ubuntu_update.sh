@@ -6,19 +6,11 @@ wget  https://dl.winehq.org/wine-builds/Release.key
 sudo apt-key add Release.key
 sudo apt-add-repository -y https://dl.winehq.org/wine-builds/ubuntu/
 sudo add-apt-repository -y ppa:js-reynaud/kicad-4
-wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
-apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
-sudo wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list
-sudo sh -c 'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'
-sudo sh -c 'echo deb https://apt.repos.intel.com/ipp all main > /etc/apt/sources.list.d/intel-ipp.list'
-sudo sh -c 'echo deb https://apt.repos.intel.com/tbb all main > /etc/apt/sources.list.d/intel-tbb.list'
-sudo sh -c 'echo deb https://apt.repos.intel.com/daal all main > /etc/apt/sources.list.d/intel-daal.list'
-sudo sh -c 'echo deb https://apt.repos.intel.com/intelpython binary/ > /etc/apt/sources.list.d/intelpython.list'
 sudo apt-get update
 sudo apt-get -y install libc6-i686:i386 libexpat1:i386 libffi6:i386 libfontconfig1:i386 libfreetype6:i386 libgcc1:i386 libglib2.0-0:i386 libice6:i386 libpcre3:i386 libpng16-16:i386 libsm6:i386 libstdc++6:i386 libuuid1:i386 libx11-6:i386 libxau6:i386 libxcb1:i386 libxdmcp6:i386 libxext6:i386 libxrender1:i386 zlib1g:i386 libx11-xcb1:i386 libdbus-1-3:i386 libxi6:i386 libsm6:i386 libcurl3:i386 
 sudo apt-get -y  install libgtk2.0-0:i386 gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 libpango1.0-0:i386
 sudo apt-get -y install intelpython3 nasm
-sudo apt-get -f install ttf-ancient-fonts  fonts-ancient-scripts dkms
+sudo apt-get -y install ttf-ancient-fonts  fonts-ancient-scripts dkms
 sudo apt-get -y install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev
 sudo apt-get  -y install freeglut3-dev freeglut3 libxcursor-dev libncursesw5-dev  libx11-dev libwebkit-gtk
 sudo apt install --yes build-essential git-core cscope ctags cvs subversion
@@ -48,6 +40,7 @@ sudo apt-get  -y install  lua5.3liblua5.3-dev
 sudo apt-get -y build-dep samba
 sudo apt-get  -y install  --install-recommends winehq-devel
 sudo apt-get  -y install   exfat-fuse exfat-utils ntfs-3g-dev libfsntfs1 libfsntfs-dev
+sudo apt-get -y install ocaml-nox
 else
 sudo yum install ksh -y  
 sudo yum install libXext.so.6 -y  
@@ -89,5 +82,9 @@ sudo yum makecache
 sudo yum install ntfs-3g  fuse-exfat exfat-utils scons zsh ntfs-3g-devel -y
 sudo yum install git clang gcc-c++ make cmake opencv-devel libcurl-devel sox-devel -y
 #sudo yum install python-pip python36-pip python36-devel python36-opencv python36-numpy -y
+#sudo dnf upgrade --refresh
+#sudo dnf install dnf-plugin-system-upgrade
+#sudo dnf system-upgrade download --refresh --releasever=27
+#sudo dnf system-upgrade reboot
 fi
 
